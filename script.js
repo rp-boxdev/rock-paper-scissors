@@ -21,29 +21,25 @@ function playRound(playerSelection, computerSelection) {
     console.log(`You chose: ${playerSelection}`);
     console.log(`Computer chose: ${computerSelection}`);
     console.log("It's a tie!");
-  } else if (playerSelection === "rock" && computerSelection === "paper") {
-    console.log(`You chose: ${playerSelection}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log("Computer wins.");
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    console.log(`You chose: ${playerSelection}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log("You win!");
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+  ) {
     console.log(`You chose: ${playerSelection}`);
     console.log(`Computer chose: ${computerSelection}`);
     console.log("You win!");
-  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+  } else {
     console.log(`You chose: ${playerSelection}`);
     console.log(`Computer chose: ${computerSelection}`);
     console.log("Computer wins.");
-  } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    console.log(`You chose: ${playerSelection}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log("Computer wins.");
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    console.log(`You chose: ${playerSelection}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log("You win!");
   }
 }
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound();
+  }
+}
+
+// game();
