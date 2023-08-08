@@ -1,38 +1,41 @@
+const rockBtn = document.querySelector("#rockBtn");
+const paperBtn = document.querySelector("#paperBtn");
+const scissorsBtn = document.querySelector("#scissorsBtn");
+// const resultsDisplay = document.querySelector("#resultsDisplay");
+const resultsStyle = document.querySelector("#resultsDisplay").style;
+const message1 = document.querySelector(".message1");
+const message2 = document.querySelector(".message2");
+const message3 = document.querySelector(".message3");
+
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random() * 3) + 1;
   if (computerChoice === 1) {
-    return "rock";
+    return "Rock";
   } else if (computerChoice === 2) {
-    return "paper";
+    return "Paper";
   } else {
-    return "scissors";
+    return "Scissors";
   }
 }
 
-// function getPlayerChoice() {
-//   let selection = ["rock", "paper", "scissors"];
-//   return selection;
-// }
-
 function playRound(playerSelection, computerSelection) {
-  // playerSelection = getPlayerChoice();
   computerSelection = getComputerChoice();
   if (playerSelection === computerSelection) {
-    console.log(`You chose: ${playerSelection}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log("It's a tie!");
+    message1.textContent = `You chose: ${playerSelection}`;
+    message2.textContent = `Computer chose: ${computerSelection}`;
+    message3.textContent = `It's a tie!`;
   } else if (
-    (playerSelection === "rock" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "rock") ||
-    (playerSelection === "scissors" && computerSelection === "paper")
+    (playerSelection === "Rock" && computerSelection === "Scissors") ||
+    (playerSelection === "Paper" && computerSelection === "Rock") ||
+    (playerSelection === "Scissors" && computerSelection === "Paper")
   ) {
-    console.log(`You chose: ${playerSelection}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log("You win!");
+    message1.textContent = `You chose: ${playerSelection}`;
+    message2.textContent = `Computer chose: ${computerSelection}`;
+    message3.textContent = `You win!`;
   } else {
-    console.log(`You chose: ${playerSelection}`);
-    console.log(`Computer chose: ${computerSelection}`);
-    console.log("Computer wins.");
+    message1.textContent = `You chose: ${playerSelection}`;
+    message2.textContent = `Computer chose: ${computerSelection}`;
+    message3.textContent = `Computer wins.`;
   }
 }
 
@@ -44,19 +47,25 @@ function playRound(playerSelection, computerSelection) {
 
 // game();
 
-//method 1
-const rockBtn = document.querySelector("#rockBtn");
-const paperBtn = document.querySelector("#paperBtn");
-const scissorsBtn = document.querySelector("#scissorsBtn");
-
+//button click functionality
 rockBtn.addEventListener("click", (e) => {
-  playRound("rock");
+  playRound("Rock");
 });
 
 paperBtn.addEventListener("click", (e) => {
-  playRound("paper");
+  playRound("Paper");
 });
 
 scissorsBtn.addEventListener("click", (e) => {
-  playRound("scissors");
+  playRound("Scissors");
 });
+
+//styling for the results display
+resultsStyle.textContent = "hello";
+resultsStyle.marginTop = "10px";
+resultsStyle.paddingTop = "10px";
+resultsStyle.paddingLeft = "10px";
+resultsStyle.width = "50%";
+resultsStyle.height = "70px";
+resultsStyle.backgroundColor = "#808080";
+resultsStyle.border = "2px solid black";
