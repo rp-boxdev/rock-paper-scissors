@@ -4,19 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
     <script src="script.js" defer></script>
     <title>Document</title>
   </head>
   <body>
     <div id="choiceBtns">
-      <button id="rockBtn" class="btn">Rock</button>
-      <button id="paperBtn" class="btn">Paper</button>
-      <button id="scissorsBtn" class="btn">Scissors</button>
+      <button id="rockBtn" class="btn">
+        <img src="images/rock.png" alt="" />Rock
+      </button>
+      <button id="paperBtn" class="btn">
+        <img src="images/paper.png" alt="" />Paper
+      </button>
+      <button id="scissorsBtn" class="btn">
+        <img src="images/scissors.png" alt="" />Scissors
+      </button>
     </div>
-    <div id="resultsDisplay">
-      <div class="message1"></div>
-      <div class="message2"></div>
-      <div class="message3"></div>
-    </div>
+    <container>
+      <div id="resultsDisplay">
+        <div class="message1">Make a choice to get started!</div>
+        <div class="message2"></div>
+        <div class="message3"></div>
+      </div>
+    </container>
   </body>
 </html>

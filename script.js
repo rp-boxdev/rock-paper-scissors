@@ -8,13 +8,13 @@ const message2 = document.querySelector(".message2");
 const message3 = document.querySelector(".message3");
 
 //styling for the results display
-resultsStyle.textContent = "hello";
-resultsStyle.marginTop = "10px";
-resultsStyle.padding = "10px";
-resultsStyle.width = "50%";
-resultsStyle.height = "70px";
-resultsStyle.backgroundColor = "#808080";
-resultsStyle.border = "2px solid black";
+// resultsStyle.textContent = "hello";
+// resultsStyle.marginTop = "10px";
+// resultsStyle.padding = "10px";
+// resultsStyle.width = "50%";
+// resultsStyle.height = "70px";
+// resultsStyle.backgroundColor = "#808080";
+// resultsStyle.border = "2px solid black";
 
 let playerScore = 0;
 let computerScore = 0;
@@ -38,7 +38,6 @@ function playRound(playerSelection, computerSelection) {
     message1.textContent = `You chose: ${playerSelection}`;
     message2.textContent = `Computer chose: ${computerSelection}`;
     ties++;
-    message3.textContent = `Player Score: ${playerScore}\nComputer Score: ${computerScore} \n Ties: ${ties}`;
   } else if (
     (playerSelection === "Rock" && computerSelection === "Scissors") ||
     (playerSelection === "Paper" && computerSelection === "Rock") ||
@@ -47,38 +46,30 @@ function playRound(playerSelection, computerSelection) {
     message1.textContent = `You chose: ${playerSelection}`;
     message2.textContent = `Computer chose: ${computerSelection}`;
     playerScore++;
-    message3.textContent = `Player Score: ${playerScore}\nComputer Score: ${computerScore} \n Ties: ${ties}`;
   } else {
     message1.textContent = `You chose: ${playerSelection}`;
     message2.textContent = `Computer chose: ${computerSelection}`;
     computerScore++;
-    message3.textContent = `Player Score: ${playerScore}\nComputer Score: ${computerScore} \n Ties: ${ties}`;
   }
+  resultsStyle.gap = "5px";
+  message3.textContent = `Player Score: ${playerScore}\nComputer Score: ${computerScore} \n Ties: ${ties}`;
   rounds++;
   if (rounds === 5) {
-    const winnerMessage = document.createElement("div");
-    winnerMessage.classList.add("winner");
-    resultsDisplay.appendChild(winnerMessage);
-    if (playerScore === computerScore) {
-      winnerMessage.textContent = "It's a tie!";
-    } else if (playerScore > computerScore) {
-      winnerMessage.textContent = "You win!";
-    } else {
-      winnerMessage.textContent = "Computer wins.";
-    }
+    displayWinner();
   }
 }
 
 function displayWinner() {
-  let winner;
+  const winnerMessage = document.createElement("div");
+  winnerMessage.classList.add("winner");
+  resultsDisplay.appendChild(winnerMessage);
   if (playerScore === computerScore) {
-    winner = "It's a tie!";
+    winnerMessage.textContent = "It's a tie!";
   } else if (playerScore > computerScore) {
-    winner = "You win!";
+    winnerMessage.textContent = "You win!";
   } else {
-    winner = "Computer wins.";
+    winnerMessage.textContent = "Computer wins.";
   }
-  return winner;
 }
 
 //button click functionality
