@@ -38,6 +38,7 @@ function playRound(playerSelection, computerSelection) {
     message1.textContent = `You chose: ${playerSelection}`;
     message2.textContent = `Computer chose: ${computerSelection}`;
     ties++;
+    message3.innerHTML = `Player Score: ${playerScore} | Computer Score: ${computerScore} | Ties: <span class="updated">${ties}</span>`;
   } else if (
     (playerSelection === "Rock" && computerSelection === "Scissors") ||
     (playerSelection === "Paper" && computerSelection === "Rock") ||
@@ -46,13 +47,17 @@ function playRound(playerSelection, computerSelection) {
     message1.textContent = `You chose: ${playerSelection}`;
     message2.textContent = `Computer chose: ${computerSelection}`;
     playerScore++;
+    message3.innerHTML = `Player Score: <span class="updated">${playerScore}</span> | Computer Score: ${computerScore} | Ties: ${ties}`;
   } else {
     message1.textContent = `You chose: ${playerSelection}`;
     message2.textContent = `Computer chose: ${computerSelection}`;
     computerScore++;
+    message3.innerHTML = `Player Score: ${playerScore} | Computer Score: <span class="updated">${computerScore}</span> | Ties: ${ties}`;
   }
   resultsStyle.gap = "5px";
-  message3.textContent = `Player Score: ${playerScore}\nComputer Score: ${computerScore} \n Ties: ${ties}`;
+  setTimeout(() => {
+    message3.innerHTML = `Player Score: ${playerScore} | Computer Score: ${computerScore} | Ties: ${ties}`;
+  }, 500);
   rounds++;
   if (rounds === 5) {
     displayWinner();
